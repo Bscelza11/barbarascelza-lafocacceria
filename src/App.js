@@ -1,18 +1,28 @@
 
 //import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles.css';
-import NavBar from './components/NavBar';
+import {ItemListContainer} from './components/ItemListContainer.js/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
+  const masaMadre = {
+    titulo: 'Masa madre',
+    texto: 'Informacion sobre masa madre'
+  }
 
-  const contenido = "Este es el contenido de mi pagina"
-  const estiloContenido = {fontSize:"50px", border: "1px solid #FFF"}
+  const fermentacionLenta = {
+    titulo: 'Fermentacion lenta',
+    texto: 'Informacion sobre la fermentacion'
+  }
+  
   return (
     <div className="App">
       <header >
         <NavBar/>
-        <p style={estiloContenido}>{contenido}</p>
-
+        <ItemListContainer titulo={masaMadre.titulo} content={masaMadre.texto}/>
+        <ItemListContainer titulo={fermentacionLenta.titulo} content={fermentacionLenta.texto}/>
+      
       </header>
     </div>
   );
