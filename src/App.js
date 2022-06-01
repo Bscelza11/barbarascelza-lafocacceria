@@ -7,21 +7,23 @@ import NavBar from './components/NavBar/NavBar';
 
 function App() {
   const masaMadre = {
-    titulo: 'Masa madre',
-    texto: 'Informacion sobre masa madre'
+    titulo: 'Pan Masa madre',
+    texto: 'Informacion sobre masa madre',
+    stock: 15
   }
 
   const fermentacionLenta = {
-    titulo: 'Fermentacion lenta',
-    texto: 'Informacion sobre la fermentacion'
+    titulo: ' Pizza Fermentacion lenta',
+    texto: 'Informacion sobre la fermentacion',
+    stock: 30
   }
   
   return (
     <div className="App">
       <header >
         <NavBar/>
-        <ItemListContainer titulo={masaMadre.titulo} content={masaMadre.texto}/>
-        <ItemListContainer titulo={fermentacionLenta.titulo} content={fermentacionLenta.texto}/>
+        <ItemListContainer titulo={masaMadre.titulo} content={masaMadre.texto} stock={masaMadre.stock}/>
+        <ItemListContainer titulo={fermentacionLenta.titulo} content={fermentacionLenta.texto} stock={fermentacionLenta.stock}/>
       
       </header>
     </div>
