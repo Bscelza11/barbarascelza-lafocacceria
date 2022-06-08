@@ -2,8 +2,9 @@
 //import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles.css';
-import {ItemListContainer} from './components/ItemListContainer.js/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer.js/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
+
 
 function App() {
   const masaMadre = {
@@ -22,8 +23,7 @@ function App() {
     <div className="App">
       <header >
         <NavBar/>
-        <ItemListContainer titulo={masaMadre.titulo} content={masaMadre.texto} stock={masaMadre.stock}/>
-        <ItemListContainer titulo={fermentacionLenta.titulo} content={fermentacionLenta.texto} stock={fermentacionLenta.stock}/>
+        <ItemListContainer/>
       
       </header>
     </div>

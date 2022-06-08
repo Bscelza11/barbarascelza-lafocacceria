@@ -1,22 +1,44 @@
-import './ItemListContainer.scss'
-import ItemCount from './ItemCount'
+import { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
+import listarProductos from "./listarProductos";
+import ItemList from "./ItemList";
 
 
-export const ItemListContainer = ({titulo = 'titulo por defecto', content = 'contenido por defecto', stock = 8}) => {
-    
-    
+const ItemListContainer = () => {
+
+    const [item, setItem] = useState([]);
+    const [loading, setLoading] = useState([true]);
+
+
+    useEffect(() => {
+        setLoading(true);
+
+        listarProductos()
+        .then((resp) =>{
+            setItem(resp)
+        })
+        .catch((error) => {
+            console.log('ERROR', error)
+        })
+        .finally(() => {
+            setLoading(false);
+        })
+    }, [])
 
     return (
-        <section className='container my-5'>
-            <h2 className='pagina'>{titulo}</h2>
-            <hr/>
-            <p>{content}</p>
-            <br/>
+        <section className="container my-5">
 
-            <ItemCount stock={stock}/>
-            
-            
+            {
+                loading ? 
+                <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+                </Spinner>
+                : 
+                <ItemList item={item}/>
 
+            }
         </section>
     )
 }
+
+export default ItemListContainer;
